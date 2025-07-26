@@ -30,6 +30,7 @@ const Signup = () => {
           id="name"
           name="name"
           label="Full Name"
+          margin="normal"
           value={formik.values.name}
           onChange={formik.handleChange}
           error={formik.touched.name && Boolean(formik.errors.name)}
@@ -40,6 +41,7 @@ const Signup = () => {
           id="email"
           name="email"
           label="Email"
+          margin="normal"
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -51,6 +53,7 @@ const Signup = () => {
           name="password"
           label="Password"
           type="password"
+          margin="normal"
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
