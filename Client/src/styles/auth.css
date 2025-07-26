@@ -1,0 +1,25 @@
+.auth-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  background-color: white;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  margin: 5% auto;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0,0,0,0.1);
+}
+
+.auth-header {
+  text-align: center;
+  color: #1A1A19;
+  font-family: 'Poppins', sans-serif;
+}
+
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
