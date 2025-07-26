@@ -28,6 +28,7 @@ const Login = () => {
           id="email"
           name="email"
           label="Email"
+          margin='normal'
           value={formik.values.email}
           onChange={formik.handleChange}
           error={formik.touched.email && Boolean(formik.errors.email)}
@@ -39,6 +40,7 @@ const Login = () => {
           name="password"
           label="Password"
           type="password"
+          margin='normal'
           value={formik.values.password}
           onChange={formik.handleChange}
           error={formik.touched.password && Boolean(formik.errors.password)}
