@@ -1,5 +1,6 @@
 import { Box, Typography, MenuItem, TextField, Button } from "@mui/material";
 import { useState } from "react";
+import "../styles/sales.css"
 
 const menuItems = [
   { name: "Chips", price: 50 },
