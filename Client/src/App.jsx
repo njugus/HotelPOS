@@ -12,9 +12,8 @@ import SalesEntryForm from "./Components/SalesEntryForm"
 function App() {
   return (
     <>
-    <Router>
+    {/* <Router>
       <Routes>
-        {/* Wrap all children inside Main layout */}
         <Route path="/" element={<SalesEntryPage />}>
           <Route index path = "home" element={<Home />} />
           <Route path="sales-entry" element={<SalesEntryForm />} />
@@ -24,7 +23,8 @@ function App() {
           <Route path="settings" element={<Settings />} />
         </Route>
       </Routes>
-    </Router>
+    </Router> */}
+    <Signup/>
     </>
   )
 }

@@ -111,7 +111,7 @@ export default function AddItemModal({ open, onClose }) {
           ))}
         </TextField>
 
-        <Button type="submit" variant="contained" fullWidth>
+        <Button type="submit" variant="contained" fullWidth >
           Add Item
         </Button>
       </Box>

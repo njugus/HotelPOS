@@ -43,7 +43,7 @@ const menuItems = [
           color="primary"
           startIcon={<AddIcon />}
           onClick={ () => setOpenModal(true)}
-          sx={{ textTransform: "none", borderRadius: 2,  }}
+          sx={{ textTransform: "none", borderRadius: 2,}}
         >
           Add Item
         </Button>
