@@ -13,3 +13,103 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model User {
+  id          String   @id @default(uuid())
+  name        String
+  email       String   @unique
+  password    String
+  role        Role     @default(CASHIER)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  sales       Sale[]
+}
+
+enum Role {
+  ADMIN
+  CASHIER
+}
+
+
+model MenuItem {
+  id          String   @id @default(uuid())
+  name        String
+  price       Float
+  category    Category
+  imageUrl    String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  salesItems  SalesItem[]
+}
+
+enum Category {
+  MEAL
+  DRINK
+}
+
+model Sale {
+  id          String   @id @default(uuid())
+  user        User     @relation(fields: [userId], references: [id])
+  userId      String
+  totalAmount Float
+  createdAt   DateTime @default(now())
+
+  items       SalesItem[]
+}
+
+model SalesItem {
+  id          String   @id @default(uuid())
+  sale        Sale     @relation(fields: [saleId], references: [id])
+  saleId      String
+
+  menuItem    MenuItem @relation(fields: [menuItemId], references: [id])
+  menuItemId  String
+
+  quantity    Int
+  subtotal    Float
+}
+
+
+model BusinessSettings {
+  id             String   @id @default(uuid())
+  hotelName      String
+  contactEmail   String
+  contactPhone   String
+  address        String
+
+  theme          ThemeMode @default(LIGHT)
+  language       Language  @default(EN)
+
+  dailyReportTime String   // e.g., "17:00"
+  enableSms       Boolean  @default(false)
+  reportEmail     String
+
+  updatedAt      DateTime  @updatedAt
+}
+
+enum ThemeMode {
+  LIGHT
+  DARK
+}
+
+enum Language {
+  EN
+  SW
+}
+
+model SmsLog {
+  id        String   @id @default(uuid())
+  to        String
+  message   String
+  sentAt    DateTime @default(now())
+}
+
+model EmailLog {
+  id        String   @id @default(uuid())
+  to        String
+  subject   String
+  content   String
+  sentAt    DateTime @default(now())
+}
